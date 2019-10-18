@@ -1,0 +1,28 @@
+{
+  "name": "DevCamper",
+  "version": "1.0.0",
+  "description": "DevCamper backend APO",
+  "main": "server.js",
+  "scripts": {
+    "start": "NODE_ENV=production node server",
+    "dev": "node server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shayant98/devCamper.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shayant98/devCamper/issues"
+  },
+  "homepage": "https://github.com/shayant98/devCamper#readme",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.4"
+  }
+}
