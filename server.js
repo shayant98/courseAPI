@@ -2,7 +2,7 @@ const express = require("express");
 const dotenv = require("dotenv");
 const morgan = require("morgan");
 const colors = require("colors");
-
+const errorHandler = require("./middleware/error");
 const connectDb = require("./config/db");
 
 // Load ENV
@@ -17,12 +17,17 @@ const bootcamps = require("./routes/bootcamps");
 // INIT server
 const app = express();
 
+// Body Parser
+app.use(express.json());
+
 if (process.env.NODE_ENV === "development") {
   app.use(morgan("dev"));
 }
 
 // MOUNT router
 app.use("/api/v1/bootcamps", bootcamps);
+
+app.use(errorHandler);
 
 const port = process.env.PORT || 5000;
 
