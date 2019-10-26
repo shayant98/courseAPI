@@ -13,6 +13,7 @@ connectDb();
 
 // ROUTE files
 const bootcamps = require("./routes/bootcamps");
+const courses = require("./routes/courses");
 
 // INIT server
 const app = express();
@@ -26,6 +27,7 @@ if (process.env.NODE_ENV === "development") {
 
 // MOUNT router
 app.use("/api/v1/bootcamps", bootcamps);
+app.use("/api/v1/courses", courses);
 
 app.use(errorHandler);
 
