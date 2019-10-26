@@ -108,7 +108,6 @@ BootcampsSchema = new mongoose.Schema({
 // Create bootcamp slug from name
 BootcampsSchema.pre("save", function(next) {
   //use standard function instead of arrow function because of "THIS" scope handling
-  console.log("Slugify Ran", this.name);
   this.slug = slugify(this.name, {
     lower: true
   });
