@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const slugify = require("slugify");
 
 BootcampsSchema = new mongoose.Schema(
   {
@@ -108,5 +109,15 @@ BootcampsSchema = new mongoose.Schema(
   //     toObject: { virtuals: true }
   //   }
 );
+
+// Create bootcamp slug from name
+BootcampsSchema.pre("save", function(next) {
+  //use standard function instead of arrow function because of "THIS" scope handling
+  console.log("Slugify Ran", this.name);
+  this.slug = slugify(this.name, {
+    lower: true
+  });
+  next();
+});
 
 module.exports = mongoose.model("Bootcamp", BootcampsSchema);
