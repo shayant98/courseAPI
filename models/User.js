@@ -60,7 +60,6 @@ Userschema.methods.matchPassword = async function(enteredPassword) {
 // Generate and hash password token
 Userschema.methods.getResetPasswordToken = async function() {
   const resetToken = crypto.randomBytes(20).toString("hex");
-  console.log(resetToken);
 
   // hash token and insert into db
   this.resetPasswordToken = crypto
